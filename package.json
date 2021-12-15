@@ -1,7 +1,7 @@
 {
   "name": "talka-api",
-  "version": "1.0.0",
-  "description": "### This is the backend services of the talka social app.",
+  "version": "0.0.1",
+  "description": "Backend services of the talka social app.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,11 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/iamprincesly/talka-api.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Talka",
+    "Social App"
+  ],
+  "author": "Sylvanus Etim <iamprincesly@gmail.com> (https://github.com/iamprincesly/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/iamprincesly/talka-api/issues"
   },
-  "homepage": "https://github.com/iamprincesly/talka-api#readme"
+  "homepage": "https://github.com/iamprincesly/talka-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
