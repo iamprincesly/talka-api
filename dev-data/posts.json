@@ -1,0 +1,34 @@
+[
+	{
+		"_id": "5c8a201e2f8fb814b56fa186",
+		"title": "This is post one",
+		"description": "This is post one description",
+		"body": "This is post one body so read all that this post has to give your daily reading style",
+		"createdAt": "2021-08-05T09:00:00.000Z",
+		"updatedAt": "2021-08-05T09:00:00.000Z"
+	},
+	{
+		"_id": "5c88fa8cf4afda39709c2965",
+		"title": "This is post two",
+		"description": "This is post two description",
+		"body": "This is post two body so read all that this post has to give your daily reading style",
+		"createdAt": "2022-03-20T10:00:00.000Z",
+		"updatedAt": "2022-03-20T10:00:00.000Z"
+	},
+    {
+		"_id": "5c88fa8cf4afda39709c2961",
+		"title": "This is post three",
+		"description": "This is post three description",
+		"body": "This is post three body so read all that this post has to give your daily reading style",
+		"createdAt": "2022-08-12T09:00:00.000Z",
+		"updatedAt": "2022-08-12T09:00:00.000Z"
+	},
+    {
+		"_id": "5c8a21f22f8fb814b56fa18a",
+		"title": "Breathing in Nature in America's most spectacular National Parks",
+		"description": "This is post four description",
+		"body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!",
+		"createdAt": "2022-08-12T07:00:00.000Z",
+		"updatedAt": "2022-08-12T07:00:00.000Z"
+	}
+]
