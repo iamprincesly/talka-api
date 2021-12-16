@@ -2,10 +2,21 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:17:03
- * @modify date 2021-12-16 17:23:25
- * @desc This controller handle all relation post endpoints
+ * @modify date 2021-12-16 17:29:59
+ * @desc This controller handle all related post endpoints
  */
-exports.getAllPosts = (req, res, next) => {
+/**
+ * ----------------------------------------------------------------
+ * Importing Custome Node Modules
+ * ----------------------------------------------------------------
+ */
+const asyncHandler = require('../utils/asyncHandler');
+
+/**
+ * This find all post in the database
+ * and return as json
+ */
+exports.getAllPosts = asyncHandler(async (req, res, next) => {
     const posts = [
         {
             title: 'this is post one',
@@ -28,4 +39,4 @@ exports.getAllPosts = (req, res, next) => {
         message: 'Post was successfully',
         data: posts,
     });
-};
+});
