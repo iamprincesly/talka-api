@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-15 17:45:54
- * @modify date 2021-12-16 11:06:02
+ * @modify date 2021-12-16 11:11:36
  * @desc Set up app and registers all middleware and routers
  */
 /**
@@ -12,6 +12,7 @@
  */
 const express = require('express');
 const Erroran = require('erroran');
+const morgan = require('morgan');
 
 /**
  * ----------------------------------------------------------------
@@ -21,6 +22,13 @@ const Erroran = require('erroran');
 const mainRouter = require('./routes/api/v1/main'); // Importing API version 1 router
 
 const app = express();
+
+/**
+ * ----------------------------------------------------------------
+ * Mounting middlewares
+ * ----------------------------------------------------------------
+ */
+app.use(morgan('dev'));
 
 /**
  * ----------------------------------------------------------------

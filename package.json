@@ -25,5 +25,8 @@
   "dependencies": {
     "erroran": "^0.1.1",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
   }
 }
