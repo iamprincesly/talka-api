@@ -2,9 +2,18 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:17:03
- * @modify date 2021-12-16 17:29:59
+ * @modify date 2021-12-19 20:08:15
  * @desc This controller handle all related post endpoints
  */
+/**
+ * ----------------------------------------------------------------
+ * Importing Dependencies
+ * ----------------------------------------------------------------
+ */
+const path = require('path');
+const fs = require('fs').promises;
+const Erroran = require('erroran');
+
 /**
  * ----------------------------------------------------------------
  * Importing Custome Node Modules
@@ -17,22 +26,15 @@ const asyncHandler = require('../utils/asyncHandler');
  * and return as json
  */
 exports.getAllPosts = asyncHandler(async (req, res, next) => {
-    const posts = [
-        {
-            title: 'this is post one',
-            description: 'This is post one description',
-        },
+    let posts = null;
 
-        {
-            title: 'this is post two',
-            description: 'This is post two description',
-        },
-
-        {
-            title: 'this is post three',
-            description: 'This is post three description',
-        },
-    ];
+    try {
+        posts = JSON.parse(
+            await fs.readFile('./dev-data/posts.json', { encoding: 'utf8' })
+        );
+    } catch (err) {
+        return next(Erroran.internalServer(err.message));
+    }
 
     return res.status(200).json({
         status: 'success',
