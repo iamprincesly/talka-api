@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/iamprincesly/talka-api#readme",
   "dependencies": {
-    "erroran": "^0.1.1",
+    "erroran": "^0.1.3",
     "express": "^4.17.1"
   },
   "devDependencies": {
