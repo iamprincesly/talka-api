@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/iamprincesly/talka-api#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "erroran": "^0.1.3",
     "express": "^4.17.1"
   },
