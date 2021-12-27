@@ -1,47 +1,39 @@
+/**
+ * @author Sylvanus Etim
+ * @email iamprincesly@gmail.com
+ * @create date 2021-12-27 21:48:17
+ * @modify date 2021-12-27 21:53:12
+ * @desc [description]
+ */
+
+/**
+ * ----------------------------------------------------------------
+ * Importing Extenal Dependencies
+ * ----------------------------------------------------------------
+ */
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
-    name: {
+/** 
+ * Post database schema
+ */
+const PostSchema = mongoose.Schema({
+    title: {
         type: String,
-        required: [true, 'Please enter your name'],
-        trim: true,
+        required: [true, 'Please enter post title'],
     },
 
-    email: {
+    description: {
         type: String,
-        required: [true, 'Please enter your email'],
-        unique: [true, 'User already exist with that email address'],
-        lowercase: true,
-        trim: true,
-        match: [
-            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-            'Please add a valid email',
-        ],
     },
 
-    role: {
+    slug: {
         type: String,
-        enum: ['user', 'publisher'],
-        default: 'user',
+        required: [true, 'Please enter post slug'],
     },
 
-    password: {
+    body: {
         type: String,
-        required: [true, 'Please enter a password.'],
-        minlength: 8,
-        select: false,
-    },
-
-    passwordConfirm: {
-        type: String,
-        required: [true, 'Please confirm your password.'],
-        validate: {
-            // This work on save() and create() only not on update
-            validator: function (el) {
-                return el === this.password;
-            },
-            message: 'Password are not the same!',
-        },
+        required: [true, 'Please enter post body'],
     },
 
     createdAt: {
@@ -55,4 +47,4 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Post', PostSchema);
