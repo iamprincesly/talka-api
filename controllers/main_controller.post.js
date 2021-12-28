@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:17:03
- * @modify date 2021-12-27 22:52:03
+ * @modify date 2021-12-28 17:49:28
  * @desc This controller handle all related post endpoints
  */
 /**
@@ -12,7 +12,7 @@
  */
 const path = require('path');
 const fs = require('fs').promises;
-const Erroran = require('erroran');
+const { Erroran } = require('erroran');
 
 /**
  * ----------------------------------------------------------------
@@ -33,19 +33,11 @@ const asyncHandler = require('../utils/asyncHandler');
  * and return as json
  */
 exports.getAllPosts = asyncHandler(async (req, res, next) => {
-    let posts = null;
-
-    try {
-        posts = JSON.parse(
-            await fs.readFile('./dev-data/posts.json', { encoding: 'utf8' })
-        );
-    } catch (err) {
-        return next(Erroran.internalServer(err.message));
-    }
+    const posts = await Post.find();
 
     return res.status(200).json({
         status: 'success',
-        message: 'Post was successfully',
+        message: 'Post fetch successfully',
         data: posts,
     });
 });
@@ -58,11 +50,23 @@ exports.createPost = asyncHandler(async (req, res, next) => {
         body: req.body.body,
     });
 
-    if (!post) throw Erroran.badRequest('Please could not be posted ');
+    if (!post) throw Erroran.badRequest('Post could not be posted ');
 
     return res.status(200).json({
         status: 'success',
         message: 'Posted successfully',
+        data: post,
+    });
+});
+
+exports.getPost = asyncHandler(async (req, res, next) => {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) throw Erroran.notFound('Post not found');
+
+    return res.status(200).json({
+        status: 'success',
+        message: 'Fetch post successfully',
         data: post,
     });
 });

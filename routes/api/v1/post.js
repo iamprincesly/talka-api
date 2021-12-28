@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:15:05
- * @modify date 2021-12-27 21:58:56
+ * @modify date 2021-12-28 11:55:19
  * @desc This router handle all post related endpoints
  */
 /**
@@ -20,6 +20,7 @@ const express = require('express');
 const {
     getAllPosts,
     createPost,
+    getPost,
 } = require('../../../controllers/main_controller.post'); // post controller
 
 const router = express.Router();
@@ -28,5 +29,7 @@ const router = express.Router();
  * Get all the posts from the database
  */
 router.route('/').get(getAllPosts).post(createPost);
+
+router.route('/:id').get(getPost);
 
 module.exports = router;
