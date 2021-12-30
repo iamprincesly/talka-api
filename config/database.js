@@ -1,7 +1,23 @@
+/**
+ * @author Sylvanus Etim
+ * @email iamprincesly@gmail.com
+ * @create date 2021-12-27 21:38:38
+ * @modify date 2021-12-27 21:41:30
+ * @desc [description]
+ */
+
+/**
+ * ----------------------------------------------------------------
+ * Importing Dependencies
+ * ----------------------------------------------------------------
+ */
 const mongoose = require('mongoose');
 
+/**
+ * Create a mongodb connect
+ */
 const connectDB = () => {
-    return mongoose
+    mongoose
         .connect(mongoURI(), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -13,6 +29,11 @@ const connectDB = () => {
         });
 };
 
+/**
+ * Get and return mongoURI based on node environment
+ *
+ * @return {string} mongoDB connection string
+ */
 const mongoURI = () => {
     return process.env.NODE_ENV === 'production'
         ? process.env.PROD_MONGO_URI

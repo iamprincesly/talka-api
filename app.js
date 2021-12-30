@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-15 17:45:54
- * @modify date 2021-12-27 21:10:20
+ * @modify date 2021-12-27 22:04:55
  * @desc Set up app and registers all middleware and routers
  */
 /**
@@ -32,6 +32,9 @@ const mainRouter = require('./routes/api/v1/main'); // Importing API version 1 r
 connectDB();
 
 const app = express();
+
+// Body parser
+app.use(express.json());
 
 /**
  * ----------------------------------------------------------------
