@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:17:03
- * @modify date 2021-12-28 17:49:28
+ * @modify date 2021-12-30 18:21:58
  * @desc This controller handle all related post endpoints
  */
 /**
@@ -68,5 +68,18 @@ exports.getPost = asyncHandler(async (req, res, next) => {
         status: 'success',
         message: 'Fetch post successfully',
         data: post,
+    });
+});
+
+exports.deletePost = asyncHandler(async (req, res, next) => {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) throw Erroran.notFound('Post not found');
+
+    post.delete();
+
+    res.status(204).json({
+        status: 'success',
+        message: 'Post deleted successfully',
     });
 });
