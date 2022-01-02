@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 10:03:03
- * @modify date 2021-12-27 20:26:22
+ * @modify date 2022-01-02 16:04:12
  * @desc Set up all api version 1 routes
  */
 /**
@@ -18,6 +18,7 @@ const express = require('express');
  * ----------------------------------------------------------------
  */
 const postRoute = require('./post');
+const userRoute = require('./user');
 
 const router = express.Router();
 
@@ -38,6 +39,10 @@ router.get('/', function (req, res, next) {
  * Mounting post route
  * ----------------------------------------------------------------
  */
+// Post related router
 router.use('/posts', postRoute);
+
+// User related router
+router.use('/users', userRoute);
 
 module.exports = router;
