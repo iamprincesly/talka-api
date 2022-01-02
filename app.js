@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-15 17:45:54
- * @modify date 2021-12-27 22:04:55
+ * @modify date 2022-01-02 21:01:56
  * @desc Set up app and registers all middleware and routers
  */
 /**
@@ -13,6 +13,8 @@
 const express = require('express');
 const { Erroran, ErroranHandler } = require('erroran');
 const morgan = require('morgan');
+const helmet = require('helmet')
+const cookieParser = require('cookie-parser');
 
 /**
  * ----------------------------------------------------------------
@@ -33,15 +35,20 @@ connectDB();
 
 const app = express();
 
-// Body parser
-app.use(express.json());
+
 
 /**
  * ----------------------------------------------------------------
  * Mounting middlewares
  * ----------------------------------------------------------------
  */
-app.use(morgan('dev'));
+app.use(express.json()); // Body parser
+
+app.use(cookieParser()); // Cookies parser
+
+app.use(morgan('dev')); // Logging in dev
+
+app.use(helmet()); // Set security HTTP headers
 
 /**
  * ----------------------------------------------------------------

@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2022-01-02 15:54:13
- * @modify date 2022-01-02 19:28:46
+ * @modify date 2022-01-02 21:27:25
  * @desc This route handle all signup requests
  */
 /**
@@ -25,7 +25,13 @@
   * ----------------------------------------------------------------
   */
  const asyncHandler = require('../../utils/asyncHandler');
+ const authenticateUser = require('../../utils/authentication');
  
+ /**
+  * This endpoint for registering a new user
+  * @route   POST /api/v1/auth/signup
+  * @access  Public
+  */
  exports.signUp = asyncHandler(async (req, res, next) => {
      // Extract needed data from the request object
      const data = {
@@ -42,10 +48,6 @@
  
      if (!user) throw Erroran.badRequest('Somethings went wrong');
  
-     return res.status(200).json({
-         status: 'success',
-         message: 'User created successfully',
-         data: user,
-     });
+     return authenticateUser(user, 200, req, res);
  });
  

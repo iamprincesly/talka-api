@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-27 21:41:50
- * @modify date 2022-01-02 20:23:35
+ * @modify date 2022-01-02 21:20:00
  * @desc User model
  */
 
@@ -13,6 +13,7 @@
  */
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 /**
  * User Schema
@@ -88,5 +89,21 @@ UserSchema.pre('save', async function (next) {
 
     next();
 });
+
+/**
+ * Sign JWT and return token
+ */
+UserSchema.methods.getSignInToken = function () {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRE,
+    });
+};
+
+/**
+ * Check if users password match the one in the database
+ */
+UserSchema.methods.checkPasswordMatch = async function (pass) {
+    return await bcrypt.compare(pass, this.password);
+};
 
 module.exports = mongoose.model('User', UserSchema);
