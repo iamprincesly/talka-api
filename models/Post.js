@@ -2,8 +2,8 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-27 21:48:17
- * @modify date 2021-12-27 21:53:12
- * @desc [description]
+ * @modify date 2022-01-02 20:13:11
+ * @desc Post model
  */
 
 /**
@@ -13,7 +13,7 @@
  */
 const mongoose = require('mongoose');
 
-/** 
+/**
  * Post database schema
  */
 const PostSchema = mongoose.Schema({
@@ -45,6 +45,8 @@ const PostSchema = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+
+    __v: { type: Number, select: false },
 });
 
 module.exports = mongoose.model('Post', PostSchema);

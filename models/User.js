@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-27 21:41:50
- * @modify date 2022-01-02 19:12:11
+ * @modify date 2022-01-02 20:23:35
  * @desc User model
  */
 
@@ -70,6 +70,7 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    __v: { type: Number, select: false },
 });
 
 /**

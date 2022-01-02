@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2022-01-02 15:54:13
- * @modify date 2022-01-02 16:26:07
+ * @modify date 2022-01-02 19:28:46
  * @desc This route handle all signup requests
  */
 /**
@@ -36,12 +36,15 @@
      };
  
      const user = await User.create(data);
+
+    //  const user = await new User(data);
+    //  user.save();
  
      if (!user) throw Erroran.badRequest('Somethings went wrong');
  
      return res.status(200).json({
          status: 'success',
-         message: 'User create',
+         message: 'User created successfully',
          data: user,
      });
  });
