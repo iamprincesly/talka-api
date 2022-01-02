@@ -2,8 +2,8 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-27 21:41:50
- * @modify date 2021-12-27 21:48:36
- * @desc [User model]
+ * @modify date 2022-01-02 19:12:11
+ * @desc User model
  */
 
 /**
@@ -12,10 +12,11 @@
  * ----------------------------------------------------------------
  */
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
-/** 
- * User Schema 
-*/
+/**
+ * User Schema
+ */
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -69,6 +70,22 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+});
+
+/**
+ * Hash user password before storing in the database
+ */
+UserSchema.pre('save', async function (next) {
+    // Only run this function if password was actually modified
+    if (!this.isModified('password')) {
+        next();
+    }
+
+    const salt = await bcrypt.genSalt(12);
+
+    this.password = await bcrypt.hash(this.password, salt);
+
+    next();
 });
 
 module.exports = mongoose.model('User', UserSchema);
