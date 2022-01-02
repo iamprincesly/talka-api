@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:17:03
- * @modify date 2021-12-30 19:50:24
+ * @modify date 2022-01-02 15:48:42
  * @desc This controller handle all related post endpoints
  */
 /**
@@ -17,14 +17,14 @@ const { Erroran } = require('erroran');
  * Importing Modules
  * ----------------------------------------------------------------
  */
-const Post = require('../models/Post');
+const Post = require('../../models/Post');
 
 /**
  * ----------------------------------------------------------------
  * Importing Custome Node Modules
  * ----------------------------------------------------------------
  */
-const asyncHandler = require('../utils/asyncHandler');
+const asyncHandler = require('../../utils/asyncHandler');
 
 /**
  * This find all post in the database

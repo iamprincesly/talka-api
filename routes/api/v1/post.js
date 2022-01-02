@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:15:05
- * @modify date 2021-12-30 19:31:17
+ * @modify date 2022-01-02 15:49:39
  * @desc This router handle all post related endpoints
  */
 /**
@@ -23,7 +23,7 @@ const {
     getPost,
     deletePost,
     updatePost,
-} = require('../../../controllers/main_controller.post'); // post controller
+} = require('../../../controllers/post/main_controller.post'); // post controller
 
 const router = express.Router();
 
