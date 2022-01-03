@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-16 17:15:05
- * @modify date 2022-01-02 15:49:39
+ * @modify date 2022-01-03 23:43:45
  * @desc This router handle all post related endpoints
  */
 /**
@@ -11,6 +11,13 @@
  * ----------------------------------------------------------------
  */
 const express = require('express');
+
+/**
+ * ----------------------------------------------------------------
+ * Importing middlewares
+ * ----------------------------------------------------------------
+ */
+const { authCheck } = require('../../../middlewares/auth_middleware');
 
 /**
  * ----------------------------------------------------------------
@@ -30,8 +37,8 @@ const router = express.Router();
 /**
  * Get all the posts from the database
  */
-router.route('/').get(getAllPosts).post(createPost);
+router.route('/').get(getAllPosts).post(authCheck, createPost);
 
-router.route('/:id').get(getPost).delete(deletePost).put(updatePost);
+router.route('/:id').get(getPost).delete(authCheck,deletePost).put(authCheck,updatePost);
 
 module.exports = router;
