@@ -26,7 +26,7 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
-    "erroran": "^1.0.1",
+    "erroran": "^1.0.3",
     "express": "^4.17.1",
     "helmet": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
