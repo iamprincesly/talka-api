@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2022-01-02 20:32:19
- * @modify date 2022-01-05 22:31:21
+ * @modify date 2022-01-05 22:45:01
  * @desc Create and send token to authenticate user
  */
 /**
@@ -47,6 +47,6 @@
         httpOnly: true,
     });
 
-    res.status(200).json({ status: 'success' });
+    res.status(200).json({ status: 'Logout successfully' });
  };
  
