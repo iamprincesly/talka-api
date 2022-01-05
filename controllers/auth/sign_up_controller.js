@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2022-01-02 15:54:13
- * @modify date 2022-01-02 21:27:25
+ * @modify date 2022-01-05 22:28:39
  * @desc This route handle all signup requests
  */
 /**
@@ -25,7 +25,7 @@
   * ----------------------------------------------------------------
   */
  const asyncHandler = require('../../utils/asyncHandler');
- const authenticateUser = require('../../utils/authentication');
+ const { authenticateUser } = require('../../utils/authentication');
  
  /**
   * This endpoint for registering a new user
