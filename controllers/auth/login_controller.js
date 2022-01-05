@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2022-01-02 21:08:19
- * @modify date 2022-01-02 21:28:29
+ * @modify date 2022-01-05 22:29:31
  * @desc Implement all login logic here
  */
 /**
@@ -25,7 +25,7 @@ const User = require('../../models/User');
  * ----------------------------------------------------------------
  */
 const asyncHandler = require('../../utils/asyncHandler');
-const authenticateUser = require('../../utils/authentication');
+const { authenticateUser, logoutUser } = require('../../utils/authentication');
 
  /**
   * This endpoint for login a user
@@ -48,4 +48,13 @@ exports.login = asyncHandler(async (req, res, next) => {
 
     // Login the user
     return authenticateUser(user, 200, req, res);
+});
+
+/**
+ * This endpoint to logout a user
+ * @route   POST /api/v1/auth/logout
+ * @access  Private
+ */
+exports.logout = asyncHandler(async (req, res, next) => {
+    return logoutUser(res);
 });
