@@ -10,7 +10,9 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
- const jwt = require('jsonwebtoken');
+ import jwt from 'jsonwebtoken';
+ import express from 'express';
+ import User from '../models/User'
 
  /**
   * ----------------------------------------------------------------
@@ -19,8 +21,8 @@
   * ----------------------------------------------------------------
   */
 
- // Send token to authenticate user
- exports.authenticateUser = (user, statusCode, req, res) => {
+// Send token to authenticate user
+export authenticateUser = (user: User, statusCode: number, req: express.Request, res: express.Response) => {
      const token = user.getSignInToken();
  
      const options = {
@@ -41,7 +43,7 @@
  };
 
  // Delete token to logout a user
- exports.logoutUser =  (res) => {
+export logoutUser =  (res) => {
     res.cookie('jwt', 'loggedout', {
         expires: new Date(Date.now() + 10 * 1000),
         httpOnly: true,

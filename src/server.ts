@@ -11,7 +11,7 @@
  * Importing Dependencies
  * ----------------------------------------------------------------
  */
- const dotenv = require('dotenv');
+import dotenv from 'dotenv';
  
 // Catch all stop server if somethings goes wrong
 process.on('uncaughtException', (err) => {
@@ -23,7 +23,7 @@ process.on('uncaughtException', (err) => {
 // Load env vars
 dotenv.config({ path: './.env' });
 
-const app = require('./app');
+import app from './app';
 
 const PORT = process.env.PORT || 3000;
 
@@ -32,7 +32,7 @@ const server = app.listen(PORT, () => {
 });
 
 // Catch 'unhandledRejection'
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', (err: Error) => {
     console.log('UNHANDLER REJECTION: Shutting down...');
     console.log(err.name, err.message);
     server.close(() => {
