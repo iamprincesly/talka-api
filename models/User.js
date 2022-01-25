@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-27 21:41:50
- * @modify date 2022-01-02 21:20:00
+ * @modify date 2022-01-25 20:06:48
  * @desc User model
  */
 
@@ -19,12 +19,24 @@ const jwt = require('jsonwebtoken');
  * User Schema
  */
 const UserSchema = new mongoose.Schema({
-    name: {
+    
+
+    first_name: {
         type: String,
-        required: [true, 'Please enter your name'],
         trim: true,
     },
 
+    last_name: {
+        type: String,
+        trim: true,
+    },
+
+    username: {
+        type: String,
+        required: [true, 'Please enter your username'],
+        trim: true,
+    },
+    
     email: {
         type: String,
         required: [true, 'Please enter your email'],
@@ -89,6 +101,13 @@ UserSchema.pre('save', async function (next) {
 
     next();
 });
+
+/**
+ * Get the user ursername and prefix with '@'
+ */
+UserSchema.methods.getUsername = function () {
+    return '@' + this.username;
+};
 
 /**
  * Sign JWT and return token
