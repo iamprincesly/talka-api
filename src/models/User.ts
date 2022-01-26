@@ -11,16 +11,14 @@
  * Importing Extenal Dependencies
  * ----------------------------------------------------------------
  */
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 /**
  * User Schema
  */
 const UserSchema = new mongoose.Schema({
-    
-
     first_name: {
         type: String,
         trim: true,
@@ -125,4 +123,4 @@ UserSchema.methods.checkPasswordMatch = async function (pass) {
     return await bcrypt.compare(pass, this.password);
 };
 
-module.exports = mongoose.model('User', UserSchema);
+export default mongoose.model('User', UserSchema);

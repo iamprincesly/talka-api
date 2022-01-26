@@ -10,14 +10,14 @@
  * Importing Dependencies
  * ----------------------------------------------------------------
  */
-const express = require('express');
+import express from 'express';
 
  /**
   * ----------------------------------------------------------------
   * Importing constrollers
   * ----------------------------------------------------------------
   */
-const { getAllUsers } = require('../../../controllers/user/main_controller.user');
+import { getAllUsers } from '../../../controllers/user/main_controller.user';
 
 const router = express.Router();
 
@@ -26,4 +26,4 @@ const router = express.Router();
  */
 router.route('/').get(authCheck, dashboard);
   
-module.exports = router;
+export default router;

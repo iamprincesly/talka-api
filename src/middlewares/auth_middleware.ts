@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2022-01-03 22:48:13
- * @modify date 2022-01-03 23:40:31
+ * @modify date 2022-01-26 03:46:46
  * @desc Authentication middleware to protect private endpoints
  */
 
@@ -11,23 +11,23 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
-const { Erroran } = require('erroran');
-const jwt = require('jsonwebtoken');
-const { promisify } = require('util');
+import { Erroran } from 'erroran';
+import jwt from 'jsonwebtoken';
+import { promisify } from 'util';
 
 /**
  * ----------------------------------------------------------------
  * Importing Custom Node Modules
  * ----------------------------------------------------------------
  */
-const asyncHandler = require('../utils/asyncHandler');
+import asyncHandler from '../utils/asyncHandler';
 
 /**
  * ----------------------------------------------------------------
  * Importing Models
  * ----------------------------------------------------------------
  */
-const User = require('../models/User');
+import User from '../models/User';
 
 // Auth protect middleware
 exports.authCheck = asyncHandler(async (req, res, next) => {

@@ -2,7 +2,7 @@
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
  * @create date 2021-12-27 21:48:17
- * @modify date 2022-01-02 20:13:11
+ * @modify date 2022-01-26 03:52:05
  * @desc Post model
  */
 
@@ -11,7 +11,7 @@
  * Importing Extenal Dependencies
  * ----------------------------------------------------------------
  */
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 /**
  * Post database schema
@@ -49,4 +49,4 @@ const PostSchema = mongoose.Schema({
     __v: { type: Number, select: false },
 });
 
-module.exports = mongoose.model('Post', PostSchema);
+exports default mongoose.model('Post', PostSchema);

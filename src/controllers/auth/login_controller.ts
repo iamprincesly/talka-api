@@ -10,29 +10,29 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
-const { Erroran } = require('erroran');
+import { Erroran } from 'erroran';
 
 /**
  * ----------------------------------------------------------------
  * Importing Models
  * ----------------------------------------------------------------
  */
-const User = require('../../models/User');
+import User from '../../models/User';
 
 /**
  * ----------------------------------------------------------------
  * Importing Custom Node Modules
  * ----------------------------------------------------------------
  */
-const asyncHandler = require('../../utils/asyncHandler');
-const { authenticateUser, logoutUser } = require('../../utils/authentication');
+import asyncHandler from '../../utils/asyncHandler';
+import { authenticateUser, logoutUser } from '../../utils/authentication';
 
  /**
   * This endpoint for login a user
   * @route   POST /api/v1/auth/login
   * @access  Public
   */
-exports.login = asyncHandler(async (req, res, next) => {
+export login = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
 
     // Check existence of password and email in the request body
@@ -55,6 +55,6 @@ exports.login = asyncHandler(async (req, res, next) => {
  * @route   POST /api/v1/auth/logout
  * @access  Private
  */
-exports.logout = asyncHandler(async (req, res, next) => {
+export logout = asyncHandler(async (req, res, next) => {
     return logoutUser(res);
 });

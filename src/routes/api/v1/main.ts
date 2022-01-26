@@ -10,17 +10,17 @@
  * Importing Dependencies
  * ----------------------------------------------------------------
  */
-const express = require('express');
+import express from 'express';
 
 /**
  * ----------------------------------------------------------------
  * Importing routers
  * ----------------------------------------------------------------
  */
-const postRoute = require('./app/post');
-const accountRoute = require('./app/account');
-const profileRoute = require('./app/profile');
-const authRoute = require('./app/auth');
+import postRoute from './app/post';
+import accountRoute from './app/account';
+import profileRoute from './app/profile';
+import authRoute from './app/auth';
 
 const router = express.Router();
 
@@ -41,7 +41,7 @@ router.get('/', function (req, res, next) {
  * Importing middlewares
  * ----------------------------------------------------------------
  */
-const { authCheck } = require('../../../../middlewares/auth_middleware');
+import { authCheck } from '../../../../middlewares/auth_middleware';
 
 /**
  * ----------------------------------------------------------------
@@ -77,4 +77,4 @@ router.use('/profile', profileRoute);
  */
 router.use('/auth', authRoute);
 
-module.exports = router;
+export default router;

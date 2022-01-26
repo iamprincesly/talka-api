@@ -10,23 +10,23 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
-const { Erroran } = require('erroran');
+import { Erroran } from 'erroran';
 
 /**
  * ----------------------------------------------------------------
  * Importing Models
  * ----------------------------------------------------------------
  */
-const User = require('../../models/User');
+import User from '../../models/User';
 
 /**
  * ----------------------------------------------------------------
  * Importing Custom Node Modules
  * ----------------------------------------------------------------
  */
-const asyncHandler = require('../../utils/asyncHandler');
+import asyncHandler from '../../utils/asyncHandler';
 
-exports.getAllUsers = asyncHandler(async (req, res, next) => {
+export getAllUsers = asyncHandler(async (req, res, next) => {
     const users = await User.find();
 
     if (!users) throw Erroran.notFound('There is no user at the moment!');

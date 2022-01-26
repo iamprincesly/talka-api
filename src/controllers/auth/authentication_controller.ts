@@ -10,14 +10,14 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 /**
  * ----------------------------------------------------------------
  * Import this module to send access token to client
  * ----------------------------------------------------------------
  */
-module.exports = (user, statusCode, req, res) => {
+export default (user, statusCode, req, res) => {
     const token = user.getSignInToken();
 
     const options = {

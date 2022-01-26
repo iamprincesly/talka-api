@@ -11,7 +11,7 @@
  * Importing Dependencies
  * ----------------------------------------------------------------
  */
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 /**
  * Create a mongodb connect
@@ -34,10 +34,10 @@ const connectDB = () => {
  *
  * @return {string} mongoDB connection string
  */
-const mongoURI = () => {
+const mongoURI: Function = () => {
     return process.env.NODE_ENV === 'production'
         ? process.env.PROD_MONGO_URI
         : process.env.DEV_MONGO_URI;
 };
 
-module.exports = connectDB;
+export default connectDB;

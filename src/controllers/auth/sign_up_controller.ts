@@ -10,29 +10,29 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
- const { Erroran } = require('erroran');
+ import { Erroran } from 'erroran';
 
  /**
   * ----------------------------------------------------------------
   * Importing Models
   * ----------------------------------------------------------------
   */
- const User = require('../../models/User');
+ import User from '../../models/User';
  
  /**
   * ----------------------------------------------------------------
   * Importing Custom Node Modules
   * ----------------------------------------------------------------
   */
- const asyncHandler = require('../../utils/asyncHandler');
- const { authenticateUser } = require('../../utils/authentication');
+ import asyncHandler from '../../utils/asyncHandler';
+ import { authenticateUser } from '../../utils/authentication';
  
  /**
   * This endpoint for registering a new user
   * @route   POST /api/v1/auth/signup
   * @access  Public
   */
- exports.signUp = asyncHandler(async (req, res, next) => {
+ export signUp = asyncHandler(async (req, res, next) => {
      // Extract needed data from the request object
      const data = {
          name: req.body.name,

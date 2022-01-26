@@ -10,21 +10,21 @@
  * Importing External Dependencies
  * ----------------------------------------------------------------
  */
-const { Erroran } = require('erroran');
+import { Erroran } from 'erroran';
 
 /**
  * ----------------------------------------------------------------
  * Importing Modules
  * ----------------------------------------------------------------
  */
-const Post = require('../../models/Post');
+import Post from '../../models/Post';
 
 /**
  * ----------------------------------------------------------------
  * Importing Custome Node Modules
  * ----------------------------------------------------------------
  */
-const asyncHandler = require('../../utils/asyncHandler');
+import asyncHandler from '../../utils/asyncHandler';
 
 /**
  * This find all post in the database
@@ -32,7 +32,7 @@ const asyncHandler = require('../../utils/asyncHandler');
  * @route   GET /api/v1/posts
  * @access  Public
  */
-exports.getAllPosts = asyncHandler(async (req, res, next) => {
+export getAllPosts = asyncHandler(async (req, res, next) => {
     const posts = await Post.find();
 
     return res.status(200).json({
@@ -48,7 +48,7 @@ exports.getAllPosts = asyncHandler(async (req, res, next) => {
  * @route   POST /api/v1/posts
  * @access  Private
  */
-exports.createPost = asyncHandler(async (req, res, next) => {
+export createPost = asyncHandler(async (req, res, next) => {
     
     // Extract needed data from the request object
     const data = {
@@ -75,7 +75,7 @@ exports.createPost = asyncHandler(async (req, res, next) => {
  * @route   Get /api/v1/posts/:id
  * @access  Public
  */
-exports.getPost = asyncHandler(async (req, res, next) => {
+export getPost = asyncHandler(async (req, res, next) => {
     const post = await Post.findById(req.params.id);
 
     if (!post) throw Erroran.notFound('Post not found');
@@ -93,7 +93,7 @@ exports.getPost = asyncHandler(async (req, res, next) => {
  * @route   UPDATE /api/v1/posts/:id
  * @access  Private
  */
-exports.updatePost = asyncHandler(async (req, res, next) => {
+export updatePost = asyncHandler(async (req, res, next) => {
     let post = await Post.findById(req.params.id);
 
     if (!post) throw Erroran.notFound('Post not found');
@@ -123,7 +123,7 @@ exports.updatePost = asyncHandler(async (req, res, next) => {
  * @route   DELETE /api/v1/posts/:id
  * @access  Private
  */
-exports.deletePost = asyncHandler(async (req, res, next) => {
+export deletePost = asyncHandler(async (req, res, next) => {
     const post = await Post.findById(req.params.id);
 
     if (!post) throw Erroran.notFound('Post not found');

@@ -42,6 +42,8 @@ export authenticateUser = (user: User, statusCode: number, req: express.Request,
          .json({ success: true, token });
  };
 
+ new Promise()
+
  // Delete token to logout a user
 export logoutUser =  (res) => {
     res.cookie('jwt', 'loggedout', {

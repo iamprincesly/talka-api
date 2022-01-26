@@ -1,44 +1,39 @@
 /**
  * @author Sylvanus Etim
  * @email iamprincesly@gmail.com
- * @create date 2021-12-16 17:15:05
- * @modify date 2022-01-03 23:43:45
- * @desc This router handle all post related endpoints
+ * @create date 2022-01-02 16:01:12
+ * @modify date 2022-01-25 20:11:40
+ * @desc All authentication related routes
  */
 /**
  * ----------------------------------------------------------------
  * Importing Dependencies
  * ----------------------------------------------------------------
  */
-const express = require('express');
+import express from 'express';
+import { login, logout } from '../../../../controllers/auth/login_controller';
 
 /**
  * ----------------------------------------------------------------
  * Importing middlewares
  * ----------------------------------------------------------------
  */
-const { authCheck } = require('../../../middlewares/auth_middleware');
+import { authCheck } from '../../../../middlewares/auth_middleware';
 
 /**
  * ----------------------------------------------------------------
  * Importing constrollers
  * ----------------------------------------------------------------
  */
-const {
-    getAllPosts,
-    createPost,
-    getPost,
-    deletePost,
-    updatePost,
-} = require('../../../controllers/post/main_controller.post'); // post controller
+import { signUp } from '../../../../controllers/auth/sign_up_controller';
 
 const router = express.Router();
 
 /**
- * Get all the posts from the database
+ * All authentication related endpoints
  */
-router.route('/').get(getAllPosts).post(authCheck, createPost);
+router.route('/signup').post(signUp); // Register new user
+router.route('/login').post(login); // Login user
+router.route('/logout').get(authCheck, logout); // Logout user
 
-router.route('/:id').get(getPost).delete(authCheck,deletePost).put(authCheck,updatePost);
-
-module.exports = router;
+export default router;
